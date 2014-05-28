@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width">
+  <title>My Steroids App</title>
+
+  <link rel="stylesheet" href="/vendor/topcoat/css/topcoat-mobile-light.css" />
+  <link rel="stylesheet" href="/stylesheets/application.css" />
+
+  <script src="/javascripts/onerror.js"></script>
+  <script src="/javascripts/console.log.js"></script>
+
+  <!-- cordova.js is served from localhost to ensure the correct version -->
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+
+  <script src="/javascripts/application.js"></script>
+
+          <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+            $(document).ready(function(){
+              $("#login").submit(function(e){
+                e.preventDefault();
+                $.ajax({
+                  type: "POST",
+                  url: "http://brainmusic-diegovidal.rhcloud.com/login",
+                  data: {username:$("#username").val(),password:$("#password").val()},
+                  success: function(data){
+                    if(data.length==0){
+                      $("#warning").html("Usuario o contraseña incorrectos");
+                    }
+                    else
+                    {
+
+                      $("#app").html(""+data[0].name+" escoge estilos musicales");
+$("#estilos").html("<form name='formStyles' action='preparaEstilos();' method='POST'><div align='center'><br><input type='checkbox' name='style1' value='Rock'> Rock <br> <input type='checkbox' name='style2' value='Reggae'> Reggae<br><input type='checkbox' name='style3' value='Rap'> Rap<br><input type='checkbox' name='style4' value='Punk'> Punk<br><input type='checkbox' name='style5' value='Metal'> Metal<br><input type='checkbox' name='style6' value='Electro'> Electro<br><input type='checkbox' name='style7' value='House'> House<br><input type='checkbox' name='style8' value='DNB'> DNB<br><br></div> <a class='play' ontouchend='preparaEstilos()'> Gos </a></form>");
+
+
+
+
+
+
+
+                    }
+                  }
+                });
+              });
+            });
+
+
+
+function preparaEstilos(){
+
+        var style1=document.getElementsByName("style1")[0].checked;
+        var style2=document.getElementsByName("style2")[0].checked;
+        var style3=document.getElementsByName("style3")[0].checked;
+        var style4=document.getElementsByName("style4")[0].checked;
+        var style5=document.getElementsByName("style5")[0].checked;
+        var style6=document.getElementsByName("style6")[0].checked;
+        var style7=document.getElementsByName("style7")[0].checked;
+        var style8=document.getElementsByName("style8")[0].checked;
+        alert(" style1="+style1+" style2="+style2+" style3="+style3+" style4="+style4+" style5="+style5+" style6="+style6+" style7="+style7+" style8="+style8);
+        closeModal();
+}
+        </script>
+</head>
+<body>
+    <div class="content-padded">
+           <div class="app" id="app">
+                 <form name="input" id="login" action="http://brainmusic-diegovidal.rhcloud.com/login" method="post">
+                        <label class="item item-input">
+                           <span class="input-label"></span>
+
+                           <input type="text" placeholder="Username" size="38" name="username" id="username">
+                        </label>
+                        <br>
+                        <label class="item item-input">
+                              <span class="input-label"></span>
+                              <input type="password" placeholder="Password" size="38" name="password" id="password">
+                        </label>
+                        <br>
+                              <input type="submit" id="submitLogin" class="button button-block button-positive" value="Sign In">
+                              </input>
+                              <center>
+                                  <div style="color:red" id="warning"></div>
+                              </center>
+                   </form>
+                </div> 
+
+
+
+    </div>
+
+    <div class="estilos" id="estilos">
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width">
+  <title>My Steroids App</title>
+
+  <link rel="stylesheet" href="/vendor/topcoat/css/topcoat-mobile-light.css" />
+  <link rel="stylesheet" href="/stylesheets/application.css" />
+    <link rel="stylesheet" href="/stylesheets/kanso.min.css" />
+      <link rel="stylesheet" href="/stylesheets/kanso.css" />
+
+  <script src="/javascripts/onerror.js"></script>
+  <script src="/javascripts/console.log.js"></script>
+
+  <!-- cordova.js is served from localhost to ensure the correct version -->
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+
+  <script src="/javascripts/application.js"></script>
+
+          <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+            $(document).ready(function(){
+              $("#login").submit(function(e){
+                e.preventDefault();
+                $.ajax({
+                  type: "POST",
+                  url: "http://brainmusic-diegovidal.rhcloud.com/login",
+                  data: {username:$("#username").val(),password:$("#password").val()},
+                  success: function(data){
+                    if(data.length==0){
+                      $("#warning").html("Usuario o contraseña incorrectos");
+                    }
+                    else
+                    {
+                        closeModal();
+
+
+
+
+
+
+
+                    }
+                  }
+                });
+              });
+            });
+
+function modalSignUp(){
+
+SignUp();
+
+  }
+        </script>
+</head>
+<body>
+    <div class="content-padded">
+           <div class="app" id="app">
+            <div style="text-align:center; margin-bottom:50px; font-size:30px; color: #fff;"> LOGIN </div>
+                 <form name="input" id="login" action="http://brainmusic-diegovidal.rhcloud.com/login" method="post">
+
+                      <div class="inputBox">
+                           <input type="text" class="inputLogin" placeholder="Username" size="17" name="username" id="username">
+                      </div>
+                        
+                      <div class="inputBox">
+                          <input type="password" class="inputLogin" placeholder="Password" size="17" name="password" id="password">
+                      </div>
+
+                        <br>
+                              <input style="width: 25em; margin-left:2px; margin-top:-10px;  background-color: #373636; height:45px; border-style: solid;" type="submit" id="submitLogin" class="button is-inverse" value="Enter">
+                              </input>
+                              <div style="margin-top:15px;">
+                              <a style=" color:#9e7971; font-size: 20px; " ontouchend="modalSignUp()"> Sign Up</a>
+                            </div>
+                              <center>
+                                  <div style="color:#ea5335; margin-top:30px;" id="warning"></div>
+                              </center>
+                   </form>
+                </div> 
+
+
+
+    </div>
+
+    <div class="estilos" id="estilos">
+    </div>
+
+</body>
+</html>

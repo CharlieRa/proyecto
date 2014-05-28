@@ -1,0 +1,76 @@
+body{
+	background-image:url("../images/fondo.png");
+	background-color:#000;
+	 text-align:center; 
+	 font-family: "Helvetica";
+	
+	
+}
+
+div h1{
+	color:#fff;
+	text-align: center;
+	font-size:45px;
+}
+div h3{
+	margin-top:-40px;
+	color:#fff;
+	text-align: center;
+	font-size:26px;
+	font-weight: 100;
+}
+* {
+  -webkit-user-select: none;  /* Disable selection/copy of elements when tapping for a long time */
+  -webkit-touch-callout: none; /* Disable touch callouts */
+}
+
+input, textarea, [contenteditable] * {
+  -webkit-user-select: auto;  /* Allow selection for input elements and those with contenteditable attribute */
+}
+.app{
+	margin-top: 135px;
+	//background-color: red;
+}
+.inputBox{
+	margin-bottom: 8px;
+	 }
+.input[type="submit"]{
+	background-color: #373636;
+	height: 25px;
+	width: 50px;
+
+}
+.inputLogin{
+	margin-bottom: 10px;
+	font-weight: 100;
+	font-size: 22px;
+	color: #373636;
+	background-color: #e56f57;
+	height: 25px;
+	border-color:#fc8670; 
+	margin:0 auto 0 auto; 
+
+}
+
+/* do not group these rules */
+*::-webkit-input-placeholder {
+  color: #ee9685;
+}
+*:-moz-placeholder {
+  color: #ee9685;
+}
+*:-ms-input-placeholder { /* IE10+ */
+  color: #ee9685;
+}
+
+
+.content-padded {
+  padding: 10px;
+}
+.play {
+	width:100px;
+	height:100px;
+	background-color:#000;
+	//background-image:url("../images/btnPlay.png");
+	color:#fff;
+}
